@@ -26,13 +26,13 @@ if [ ! -f fathers.txt ]
  then
   awk 'NR>1 {print $2}' pedigree_trios.txt > fathers.txt
  else
-  "already complied fathers"
+  echo "already complied fathers"
 fi
 
 #Extract the vcf files filtered to only contain individuals of interest
-if [ ! -d trios_vcf ]
+if [ ! -d trios_fast_vcf ]
  then
-  sbatch TRD_extract.sh 
+  sbatch TRD_extract_fast.sh 
  else
   echo "already ran extract"
 fi

@@ -4,11 +4,24 @@
 #SBATCH --mem=15Gb # specify the amount of memory to request for the job
 #SBATCH --output=%x.%j.out # specify the output file name. You can specify it however you want, but thi>
 
+
+
+#Make a subdirectory in plink_trios for each chromosome
 mkdir plink_trios
 
+for CHR in {1..22} X Y; do
+ mkdir plink_trios/chr${CHR}_trios
+done
+
 #Note that we set max alleles to 2 to keep things simple
-plink2 --vcf trios_fast_vcf/chr1.trios.fast.vcf.gz --make-bed --out plink_trios/chr1_trios \
- --max-alleles 2
+for CHR in {1..22} X Y; do
+ plink2 \
+  --vcf trios_fast_vcf/chr${CHR}.trios.fast.vcf.gz \
+  --set-all-var-ids 'chr@:#' \
+  --make-bed \
+  --out plink_trios/chr${CHR}_trios/chr${CHR}_trios \
+  --max-alleles 2
+done
 
 #Manually replace the .fam file that plink2 makes with a hand made one since I di supply the the .ped
 #Make sure all individuals have the "affected phenotype"
@@ -33,4 +46,4 @@ NR > 1 {
 
     print fid, child, father, mother, sex, 2
     seen[child] = 1
-}' pedigree_trios.txt > plink_trios/chr1_trios.fam
+}' pedigree_trios.txt > plink_trios/trios.fam

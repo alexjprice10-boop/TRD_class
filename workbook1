@@ -3,3 +3,8 @@ Attempting to extract data from 1000 genome project (only the 45 individuals).
 TRD_extract does all genes for all chromosomes for all individuals
 TRD_extract_hetero does only heterozygous genes for
 TRD_main.sh submitts sbatch jobs and does code that can be done on login node
+
+11/21/26
+Found way to speed up chromosome extraction (TRD_extract_fact.sh)
+crated way to conver vcf files to plink compatible (TRD_plink_conversions.sh)
+found way to do TDT test with plink (plink_TDT.sh)

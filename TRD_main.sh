@@ -36,3 +36,18 @@ if [ ! -d trios_fast_vcf ]
  else
   echo "already ran extract"
 fi
+
+#Convert the vcf files to plink compatible format
+if [ ! -d  plink_trios ]
+ then
+  sbatch TRD_plink_conversions.sh
+ else
+  echo "already ran plink conversions"
+fi
+
+if [ ! -d plink_TDT ]
+ then
+  sbatch plink_TDT.sh
+ else
+  echo "already ran the TDTs"
+fi

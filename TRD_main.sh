@@ -51,3 +51,10 @@ if [ ! -d plink_TDT ]
  else
   echo "already ran the TDTs"
 fi
+
+if [ ! -d ensembl ]
+ then
+  sbatch ensembl_ids.sh
+ else
+  echo "already found ensembl ids"
+fi

@@ -45,6 +45,7 @@ if [ ! -d  plink_trios ]
   echo "already ran plink conversions"
 fi
 
+#Run the TDT tests
 if [ ! -d plink_TDT ]
  then
   sbatch plink_TDT.sh
@@ -52,6 +53,7 @@ if [ ! -d plink_TDT ]
   echo "already ran the TDTs"
 fi
 
+#Find the ensembl codes for TRD loci
 if [ ! -d ensembl ]
  then
   sbatch ensembl_ids.sh

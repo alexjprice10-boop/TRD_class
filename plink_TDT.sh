@@ -21,7 +21,7 @@ for CHR in {1..22} X Y; do
 #Now keep only rows where P-values were calculated
  awk 'BEGIN{OFS="\t"}
     NR==1 {print; next}
-    ($6!="NA" || $9!="NA" || $11!="NA") {print}' \
+    ($6!="NA" || $9!="NA" || $11!="NA") {print}' 
     "plink_TDT/chr${CHR}_TDT_out.tdt.poo" \
     > "plink_TDT/chr${CHR}_TDT_out_filtered.tdt.poo"
 

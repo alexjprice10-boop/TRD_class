@@ -8,3 +8,6 @@ TRD_main.sh submitts sbatch jobs and does code that can be done on login node
 Found way to speed up chromosome extraction (TRD_extract_fact.sh)
 crated way to conver vcf files to plink compatible (TRD_plink_conversions.sh)
 found way to do TDT test with plink (plink_TDT.sh)
+
+11/22/26
+Teste for TDT in all individuals and identified ensembl codes for genes with SNPs that ehibit TDT

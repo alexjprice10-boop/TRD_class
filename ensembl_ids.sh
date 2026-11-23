@@ -45,8 +45,15 @@ NR==1 { next }
 ' plink_TDT/all_TDT_filtered.tdt.poo > ensembl/plink_poo_all_tests.bed
 
 #Now find the ensembl codes
+#NOTE THAT IS CURRENTLY REMOVES SNPs THAT DO NOT OVERLAP WITH GENES
 bedtools intersect \
     -a ensembl/plink_poo_all_tests.bed \
     -b ensembl/genes.gtf \
     -wa -wb \
     > ensembl/plink_poo_all_tests_gene_overlaps.txt
+
+#Now give it a header
+{
+printf 'BED_chr\tBED_start\tBED_end\tSNP_ID\tP_PAT\tP_MAT\tZ_POO\tP_POO\tGTF_chr\tGTF_source\tGTF_feature\tGTF_start\tGTF_end\tGTF_score\tGTF_strand\tGTF_frame\tGTF_attributes\n'
+cat ensembl/plink_poo_all_tests_gene_overlaps.txt
+} > ensembl/temp.txt && mv ensembl/temp.txt ensembl/plink_poo_all_tests_gene_overlaps.txt

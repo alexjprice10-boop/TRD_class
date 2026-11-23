@@ -10,4 +10,4 @@ crated way to conver vcf files to plink compatible (TRD_plink_conversions.sh)
 found way to do TDT test with plink (plink_TDT.sh)
 
 11/22/26
-Teste for TDT in all individuals and identified ensembl codes for genes with SNPs that ehibit TDT
+Tested for TDT in all individuals and identified ensembl codes for genes with SNPs that ehibit TDT
